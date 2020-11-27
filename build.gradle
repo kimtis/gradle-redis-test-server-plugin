@@ -1,0 +1,31 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.12.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+}
+
+pluginBundle {
+    website = 'https://github.com/kimtis/gradle-redis-test-server-plugin'
+    vcsUrl = 'https://github.com/kimtis/gradle-redis-test-server-plugin'
+    tags = ['redis', 'docker', 'test', 'plugins']
+}
+
+gradlePlugin {
+    plugins {
+        redisServerPlugin {
+            id = 'com.kimtis.gradle.redis-test-server'
+            displayName = 'Local redis server'
+            description = 'Run redis server locally for development using docker'
+            implementationClass = 'com.kimtis.gradle.redis.RedisServerPlugin'
+        }
+    }
+}

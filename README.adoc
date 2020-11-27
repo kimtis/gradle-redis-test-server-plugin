@@ -1,0 +1,5 @@
+# Gradle Redis Plugin
+
+Run redis server locally for development using docker.
+
+- Personal study to make gradle plugin and publish it.
